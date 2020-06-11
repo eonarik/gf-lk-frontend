@@ -1,0 +1,100 @@
+/* font-family: "MontserratAlternatesRegular"; */
+@font-face {
+	font-family: "MontserratAlternatesRegular";
+	src: url("../fonts/Montserrat/MontserratAlternatesRegular.eot");
+	src: url("../fonts/Montserrat/MontserratAlternatesRegular.eot?#iefix")format("embedded-opentype"),
+	url("../fonts/Montserrat/MontserratAlternatesRegular.woff") format("woff"),
+	url("../fonts/Montserrat/MontserratAlternatesRegular.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+
+/* font-family: "MontserratAlternatesMedium"; */
+@font-face {
+	font-family: "MontserratAlternatesMedium";
+	src: url("../fonts/Montserrat/MontserratAlternatesMedium.eot");
+	src: url("../fonts/Montserrat/MontserratAlternatesMedium.eot?#iefix")format("embedded-opentype"),
+	url("../fonts/Montserrat/MontserratAlternatesMedium.woff") format("woff"),
+	url("../fonts/Montserrat/MontserratAlternatesMedium.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+
+/* font-family: "MontserratAlternatesBold"; */
+@font-face {
+	font-family: "MontserratAlternatesBold";
+	src: url("../fonts/Montserrat/MontserratAlternatesBold.eot");
+	src: url("../fonts/Montserrat/MontserratAlternatesBold.eot?#iefix")format("embedded-opentype"),
+	url("../fonts/Montserrat/MontserratAlternatesBold.woff") format("woff"),
+	url("../fonts/Montserrat/MontserratAlternatesBold.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+
+/* font-family: "MontserratAlternatesItalic"; */
+@font-face {
+	font-family: "MontserratAlternatesItalic";
+	src: url("../fonts/Montserrat/MontserratAlternatesItalic.eot");
+	src: url("../fonts/Montserrat/MontserratAlternatesItalic.eot?#iefix")format("embedded-opentype"),
+	url("../fonts/Montserrat/MontserratAlternatesItalic.woff") format("woff"),
+	url("../fonts/Montserrat/MontserratAlternatesItalic.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+
+/* font-family: "MontserratAlternatesSemiBold"; */
+@font-face {
+	font-family: "MontserratAlternatesSemiBold";
+	src: url("../fonts/Montserrat/MontserratAlternatesSemiBold.eot");
+	src: url("../fonts/Montserrat/MontserratAlternatesSemiBold.eot?#iefix")format("embedded-opentype"),
+	url("../fonts/Montserrat/MontserratAlternatesSemiBold.woff") format("woff"),
+	url("../fonts/Montserrat/MontserratAlternatesSemiBold.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+
+/* font-family: "PhilosopherRegular"; */
+@font-face {
+	font-family: "PhilosopherRegular";
+	src: url("../fonts/Philosopher/PhilosopherRegular.eot");
+	src: url("../fonts/Philosopher/PhilosopherRegular.eot?#iefix")format("embedded-opentype"),
+	url("../fonts/Philosopher/PhilosopherRegular.woff") format("woff"),
+	url("../fonts/Philosopher/PhilosopherRegular.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+
+/* font-family: "PhilosopherBold"; */
+@font-face {
+	font-family: "PhilosopherBold";
+	src: url("../fonts/Philosopher/PhilosopherBold.eot");
+	src: url("../fonts/Philosopher/PhilosopherBold.eot?#iefix")format("embedded-opentype"),
+	url("../fonts/Philosopher/PhilosopherBold.woff") format("woff"),
+	url("../fonts/Philosopher/PhilosopherBold.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+
+/* font-family: "PhilosopherItalic"; */
+@font-face {
+	font-family: "PhilosopherItalic";
+	src: url("../fonts/Philosopher/PhilosopherItalic.eot");
+	src: url("../fonts/Philosopher/PhilosopherItalic.eot?#iefix")format("embedded-opentype"),
+	url("../fonts/Philosopher/PhilosopherItalic.woff") format("woff"),
+	url("../fonts/Philosopher/PhilosopherItalic.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+
+/* font-family: "LobsterRegular"; */
+@font-face {
+	font-family: "LobsterRegular";
+	src: url("../fonts/Lobster/LobsterRegular.eot");
+	src: url("../fonts/Lobster/LobsterRegular.eot?#iefix")format("embedded-opentype"),
+	url("../fonts/Lobster/LobsterRegular.woff") format("woff"),
+	url("../fonts/Lobster/LobsterRegular.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+
+

@@ -1,0 +1,59 @@
+.form-group {
+  margin-bottom: 22px;
+
+  label {
+    color: #489621;
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 11px;
+    font-family: 'MontserratAlternatesBold';
+    display: block;
+    font-weight: normal;
+  }
+
+  .form-control {
+    margin-bottom: 0;
+  }
+
+  &__input {
+    position: relative;
+
+    .form-control {
+      &:hover + .form-group__hint {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(0, 0);
+      }
+    }
+  }
+
+  &__hint {
+    position: absolute;
+    bottom: 52px;
+    left: 0;
+    transform: translate(0, -20%);
+    width: 215px;
+    padding: 15px 20px 10px;
+    font-size: 12px;
+    line-height: 150%;
+    background-color: #f9ebb2;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    z-index: 3;
+    transition: all 0.25s;
+    opacity: 0;
+    visibility: hidden;
+
+    &-text {
+      font-size: 12px;
+      line-height: 1.5;
+      color: #000;
+    }
+
+    &-triangle {
+      position: absolute;
+      bottom: 0;
+      left: 20px;
+      margin-bottom: -24px;
+    }
+  }
+}

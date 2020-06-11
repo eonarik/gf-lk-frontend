@@ -1,0 +1,390 @@
+
+.abonement {
+  margin-bottom: 80px;
+
+  &__w1 {
+    margin: 60px auto;
+    max-width: 1036px;
+    background: #F9EBB2;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+
+    &-left, &-right {
+      display: flex;
+      align-items: center;
+    }
+
+    &-left {
+      background-color: #ffc000;
+      width: 315px;
+      border-radius: 50px;
+      justify-content: center;
+      text-align: center;
+      flex: 0 0 auto;
+      padding: 37px 15px;
+
+      p {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 150%;
+        text-align: center;
+        color: #000;
+      }
+    }
+
+    &-right {
+      padding: 0 69px 0 42px;
+
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 30px;
+    line-height: 37px;
+    color: #000;
+    font-family: 'MontserratAlternatesBold';
+  }
+
+  &__items {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 66px;
+
+    &-i {
+      width: calc(20% - 15px);
+      text-align: center;
+    }
+
+    &-img {
+      height: 130px;
+    }
+
+    &-h {
+      font-family: 'MontserratAlternatesMedium';
+      margin-bottom: 16px;
+      color: #ff8c00;
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    &-descr {
+      font-size: 16px;
+      line-height: 20px;
+      padding: 0 5px;
+    }
+  }
+
+  &__calend {
+    width: 862px;
+    margin: 0 auto 37px;
+
+    .week-day, &-head-mobile {
+      display: none;
+    }
+
+    &-head {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 11px;
+
+      .tab {
+        width: calc(16.67% - 4px);
+        margin-bottom: 5px;
+        background-color: #ffc000;
+        border-radius: 15px;
+        text-align: center;
+        font-size: 16px;
+        line-height: 32px;
+        color: #000;
+        font-family: 'MontserratAlternatesBold';
+        cursor: pointer;
+        transition: .15s ease-in-out;
+
+        &:hover, &.active {
+          background-color: #ff8c00;
+          color: #fff;
+        }
+      }
+    }
+
+    &-names {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+
+      &-i {
+        width: calc(14.28% - 4px);
+        height: 22px;
+        line-height: 22px;
+        text-align: center;
+        color: #fff;
+        border-radius: 10px;
+        background-color: #545454;
+        font-size: 12px;
+        font-family: 'MontserratAlternatesBold';
+      }
+    }
+
+    &-days {
+      &-row {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      &-i {
+        width: calc(14.28% - 4px);
+        height: 118px;
+        border-radius: 10px;
+        background-color: #f9ebb2;
+        margin-bottom: 5px;
+        padding: 10px;
+        color: #000;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+
+        &:not(.not-active) {
+          cursor: pointer;
+        }
+
+        &:hover {
+          .abonement__calend-days-detail {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+          }
+
+          &:after {
+            opacity: 1 !important;
+          }
+        }
+
+        &:before {
+          content: '';
+          height: 40px;
+          width: 100%;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          background: rgb(249, 235, 178);
+          background: linear-gradient(0deg, rgba(249, 235, 178, 1) 0%, rgba(249, 235, 178, 1) 30%, rgba(255, 255, 255, 0) 100%);
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+        }
+
+        &.not-active {
+          background-color: #F5F5F5;
+
+          &:before {
+            display: none;
+          }
+        }
+
+        &:not(.with-detail):not(.not-active):after {
+          content: '';
+          width: 43px;
+          height: 43px;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          border-radius: 50%;
+          background-image: url('./../../assets/img/plus-icon-yellow.svg');
+          opacity: 0;
+          transition: all 0.25s;
+        }
+
+        p {
+          font-size: 10px;
+          line-height: 1.3;
+          font-family: 'MontserratAlternatesSemibold';
+          margin: 0 0 .5em,
+        }
+      }
+
+      &-plan {
+        max-width: 80px;
+        overflow: hidden;
+        padding-right: 5px;
+      }
+
+      &-num {
+        flex: 0 0 auto;
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 1;
+        text-align: right;
+        color: #FF8C00;
+        font-family: 'MontserratAlternatesSemibold';
+      }
+
+      &-detail {
+        width: 313px;
+        position: absolute;
+        background-color: #fff;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+        z-index: 9;
+        left: -80px;
+        top: 80%;
+        transform: translateY(20px);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+
+        ul {
+          margin: 0;
+          padding: 0;
+
+          > li {
+            padding: 12px 35px;
+            border-bottom: 1px solid #F9EBB2;
+            font-size: 16px;
+            line-height: 20px;
+            list-style-type: none;
+          }
+        }
+      }
+
+      &-date {
+        padding: 12px 35px;
+        font-size: 24px;
+        color: #fff;
+        font-family: 'MontserratAlternatesSemibold';
+        background: #FF8C00;
+        text-align: center;
+      }
+
+      &-add-event {
+        width: 43px;
+        height: 43px;
+        background-color: #ffc000;
+        border-radius: 50%;
+        margin: 15px auto;
+        position: relative;
+        cursor: pointer;
+        transition: all 0.25s;
+
+        &:hover {
+          opacity: 0.8;
+        }
+
+        &:before, &:after {
+          content: '';
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          background-color: #fff;
+          border-radius: 5px;
+        }
+
+        &:before {
+          width: 19px;
+          height: 4px;
+        }
+
+        &:after {
+          width: 4px;
+          height: 19px;
+        }
+      }
+    }
+  }
+
+  &__h3 {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 150%;
+    text-align: center;
+    color: #FF7200;
+    margin-bottom: 30px;
+  }
+
+  &__btn {
+    display: block;
+    margin: auto;
+    border-radius: 70px;
+    background-color: #489621;
+    width: 280px;
+    height: 73px;
+    line-height: 73px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    transition: all 0.25s;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  &__faq {
+    margin: 110px auto;
+    max-width: 1060px;
+
+    h2 {
+      margin-bottom: 70px;
+    }
+
+    &-accordeon {
+      margin-bottom: 100px;
+
+      dl {
+        border-bottom: 1px solid #E5E5E5;
+      }
+
+      dt {
+        padding: 15px 60px 15px 15px;
+        min-height: 100px;
+        font-family: 'MontserratAlternatesSemibold';
+        font-size: 20px;
+        line-height: 24px;
+        color: #000;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+
+        &.active:after {
+          background-image: url('./../../assets/img/icons/close-white.svg');
+        }
+
+        &:after {
+          content: '';
+          display: block;
+          width: 38px;
+          height: 38px;
+          background-color: #ffc000;
+          border-radius: 50%;
+          position: absolute;
+          right: 10px;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-image: url('./../../assets/img/icons/triangle-white.svg');
+          transition: all 0.1s;
+        }
+      }
+
+      dd {
+        padding: 0 15px 30px 15px;
+        margin: 0;
+
+        p {
+          font-size: 16px;
+          line-height: 1.5;
+          color: #000;
+        }
+      }
+    }
+  }
+}
