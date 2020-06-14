@@ -76,6 +76,7 @@
 
         <div class="col-md-5 col-md-offset-1">
           <!-- TODO: вход через соц сети -->
+          <SocialAuth />
         </div>
       </div>
     </div>
@@ -86,6 +87,7 @@
 import { mapActions } from 'vuex';
 
 import AuthPage from '@/components/AuthPage';
+import SocialAuth from '@/components/SocialAuth';
 import FormGroup from '@/components/FormGroup';
 
 import { messageTypes } from '@/constants';
@@ -126,6 +128,7 @@ export default {
   },
   components: {
     AuthPage,
+    SocialAuth,
     FormGroup,
   },
   methods: {

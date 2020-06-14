@@ -68,9 +68,9 @@
         </div>
 
         <!-- TODO: вход через соц сети -->
-        <!-- <div class="col-md-5 col-md-offset-1">
+        <div class="col-md-5 col-md-offset-1">
           <SocialAuth />
-        </div> -->
+        </div>
       </div>
     </div>
   </AuthPage>
@@ -80,7 +80,7 @@
 import { mapActions } from 'vuex';
 
 import AuthPage from '@/components/AuthPage';
-// import SocialAuth from '@/components/SocialAuth';
+import SocialAuth from '@/components/SocialAuth';
 
 export default {
   name: 'Login',
@@ -94,7 +94,7 @@ export default {
   },
   components: {
     AuthPage,
-    // SocialAuth,
+    SocialAuth,
   },
   computed: {
     loading() { return this.$store.state.loading; },
