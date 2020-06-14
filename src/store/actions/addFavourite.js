@@ -1,3 +1,3 @@
 import { add } from '@/apis/favourites';
 
-export default (_, id) => add(id);
+export default ({ dispatch }, id) => add(id).then(() => dispatch('getFavouritesTotal'));

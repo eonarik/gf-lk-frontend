@@ -26,7 +26,7 @@
         </div>
         <div class="cabinet__inp100">
           <label>Мой отзыв:</label>
-          <textarea name="description" v-model="description">
+          <textarea name="comment" v-model="comment">
             Ребята молодцы, все на высшем уровне, букеты всегда свежие и безумно красивые.
             Уже не раз заказываю у них на разные события, никогда не подводят.
             Рекомендую!
@@ -88,9 +88,9 @@ export default {
       get() { return this.$store.state.user.address; },
       set(address) { this.$store.commit('setUserState', { address }); },
     },
-    description: {
-      get() { return this.$store.state.user.description; },
-      set(description) { this.$store.commit('setUserState', { description }); },
+    comment: {
+      get() { return this.$store.state.user.comment; },
+      set(comment) { this.$store.commit('setUserState', { comment }); },
     },
   },
   components: {
@@ -108,7 +108,7 @@ export default {
         fullname: this.fullname || '',
         mobilephone: this.mobilephone || '',
         address: this.address || '',
-        description: this.description || '',
+        comment: this.comment || '',
         silent: true,
       }).then(() => {
         this.message = {

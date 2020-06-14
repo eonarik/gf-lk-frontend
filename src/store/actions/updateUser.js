@@ -5,7 +5,7 @@ export default ({ commit }, {
   fullname,
   mobilephone,
   address,
-  description,
+  comment,
   silent,
 } = {}) => {
   !silent && commit('setLoading', true);
@@ -14,7 +14,7 @@ export default ({ commit }, {
     fullname,
     mobilephone,
     address,
-    description,
+    comment,
   }).then((result) => {
     const { success, message, object: user } = result;
 

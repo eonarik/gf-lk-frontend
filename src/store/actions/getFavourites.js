@@ -22,6 +22,10 @@ export default ({ commit }, {
         items,
       });
     } else {
+      commit('setFavouritesState', {
+        total: 0,
+        items: [],
+      });
       throw new Error(message);
     }
   });

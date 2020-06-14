@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 import LkNavLink from './LkNavLink';
 
 import './LkNav.scss';
@@ -28,10 +30,19 @@ import './LkNav.scss';
 export default {
   name: 'LkNav',
   computed: {
+    isAuth() { return this.$store.state.isAuth; },
     favouritesTotal() { return this.$store.state.favourites.total; },
   },
   components: {
     LkNavLink,
+  },
+  methods: {
+    ...mapActions(['getFavouritesTotal']),
+  },
+  beforeMount() {
+    if (this.isAuth) {
+      this.getFavouritesTotal({ silent: true });
+    }
   },
 };
 </script>

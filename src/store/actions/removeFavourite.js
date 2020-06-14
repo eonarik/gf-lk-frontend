@@ -1,3 +1,3 @@
 import { remove } from '@/apis/favourites';
 
-export default (_, id) => remove(id);
+export default ({ dispatch }, id) => remove(id).then(() => dispatch('getFavouritesTotal'));
