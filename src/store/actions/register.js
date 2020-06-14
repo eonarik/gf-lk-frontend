@@ -2,6 +2,7 @@ import { register } from '../../apis/user';
 
 export default ({ commit }, {
   email,
+  username,
   fullname,
   mobilephone,
   password,
@@ -12,22 +13,29 @@ export default ({ commit }, {
 
   return register({
     email,
+    username,
     fullname,
     mobilephone,
     password,
     confirmpassword,
   }).then((result) => {
-    const { success, message, object: { token, ...user } } = result;
+    const {
+      success,
+      message,
+      data,
+      object: { token, ...user },
+    } = result;
 
-    window.localStorage.setItem('token', token);
-
+    commit('setErrorData', {});
     !silent && commit('setLoading', false);
     if (success) {
+      window.localStorage.setItem('token', token);
       commit('setUser', {
         ...user,
       });
       commit('setIsAuth', true);
     } else {
+      commit('setErrorData', data);
       throw new Error(message);
     }
   });

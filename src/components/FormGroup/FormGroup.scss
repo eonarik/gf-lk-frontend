@@ -18,6 +18,12 @@
   &__input {
     position: relative;
 
+    &--error {
+      .form-control {
+        border-color: red;
+      }
+    }
+
     .form-control {
       &:hover + .form-group__hint {
         opacity: 1;
@@ -55,5 +61,11 @@
       left: 20px;
       margin-bottom: -24px;
     }
+  }
+
+  &__error {
+    font-size: 13px;
+    line-height: 16px;
+    color: red;
   }
 }

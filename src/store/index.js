@@ -9,6 +9,7 @@ Vue.use(Vuex);
 export const initialState = {
   user: {},
   isAuth: Boolean(window.localStorage.token),
+  errorData: {},
   favourites: {
     page: 1,
     total: 0,

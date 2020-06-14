@@ -20,11 +20,15 @@
         <span class="checkbox-custom"></span>
         <span class="label">{{ option.label }}</span>
       </label>
+      <span class="form-group__error" v-if="errorLabel">{{ errorLabel }}</span>
     </template>
 
     <template v-if="type !== 'checkbox'">
       <label :for="id" v-if="!withoutLabel">{{ label }}</label>
-      <div class="form-group__input">
+      <div :class="cn(
+        'form-group__input',
+        { 'form-group__input--error': Boolean(errorLabel) },
+      )">
         <input class="form-control"
           :id="id"
           :type="type"
@@ -51,6 +55,7 @@
           </span>
         </div>
       </div>
+      <span class="form-group__error" v-if="errorLabel">{{ errorLabel }}</span>
     </template>
 
     <slot />
@@ -58,6 +63,7 @@
 </template>
 
 <script>
+import { cn } from '@/utils';
 import './FormGroup.scss';
 
 export default {
@@ -65,6 +71,7 @@ export default {
   props: {
     id: { type: String, default: `input-${Date.now()}` },
     label: { type: String, default: '' },
+    errorLabel: { type: String, default: '' },
     type: { type: String, default: 'text' },
     name: { type: String, default: `name-${Date.now()}` },
     value: { default: '' },
@@ -73,6 +80,9 @@ export default {
     placeholder: { type: String, default: '' },
     withoutLabel: { type: Boolean, default: false },
     required: { type: Boolean, default: false },
+  },
+  methods: {
+    cn,
   },
 };
 </script>

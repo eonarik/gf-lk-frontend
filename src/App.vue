@@ -19,7 +19,7 @@ import './App.scss';
 export default {
   name: 'App',
   methods: {
-    ...mapActions(['getFavourites']),
+    ...mapActions(['getFavouritesTotal']),
     cn,
   },
   computed: {
@@ -29,9 +29,7 @@ export default {
   },
   beforeMount() {
     if (this.isAuth) {
-      // TODO: получим избранное, чтобы получить его кол-во?
-      // стоит зарефакторить
-      this.getFavourites({ silent: true });
+      this.getFavouritesTotal({ silent: true });
     }
   },
 };

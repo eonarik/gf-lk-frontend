@@ -1,4 +1,5 @@
 export { default as setCurrentMonth } from './setCurrentMonth';
+export { default as setErrorData } from './setErrorData';
 export { default as setFavouritesState } from './setFavouritesState';
 export { default as setIsAuth } from './setIsAuth';
 export { default as setLoading } from './setLoading';

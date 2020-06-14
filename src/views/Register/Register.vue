@@ -1,79 +1,61 @@
 <template>
   <AuthPage :pagetitle="pagetitle">
     <div class="content">
-      <div v-if="loading">Пожалуйста, подождите...</div>
-
       <div class="row">
         <div class="col-md-6">
+          <div class="alert alert-warning"
+            v-if="message && message.type === 'error'"
+            @click="message = {}"
+          >
+            {{ message.text }}
+          </div>
+
           <form method="post" class="form-horizontal"
             v-on:submit.prevent="handleSubmit"
           >
-            <div class="form-group">
-              <label for="register-email" class="control-label">Почта *</label>
-              <input
-                type="email"
-                name="email"
-                placeholder
-                class="form-control"
-                id="register-email"
-                v-model="email"
-                required
-              />
-            </div>
+            <FormGroup
+              id="register-email"
+              label="Почта *"
+              type="email"
+              v-model="email"
+              :errorLabel="errorData.email || errorData.username"
+              required
+            />
 
-            <div class="form-group">
-              <label for="register-password" class="control-label">Пароль *</label>
-              <input
-                type="password"
-                name="password"
-                placeholder
-                class="form-control"
-                id="register-password"
-                v-model="password"
-                required
-              />
-            </div>
+            <FormGroup
+              id="register-password"
+              label="Пароль *"
+              type="password"
+              v-model="password"
+              :errorLabel="errorData.password || errorData.specifiedpassword"
+              required
+            />
 
-            <div class="form-group">
-              <label for="register-confirmpassword" class="control-label">Повторите пароль *</label>
-              <input
-                type="password"
-                name="confirmpassword"
-                placeholder
-                class="form-control"
-                id="register-confirmpassword"
-                v-model="confirmpassword"
-                required
-              />
-            </div>
+            <FormGroup
+              id="register-confirmpassword"
+              label="Повторите пароль *"
+              type="password"
+              v-model="confirmpassword"
+              :errorLabel="errorData.confirmpassword"
+              required
+            />
 
-            <div class="form-group">
-              <label for="register-fullname" class="control-label">Имя:</label>
-              <input
-                type="text"
-                name="fullname"
-                placeholder
-                class="form-control"
-                id="register-fullname"
-                v-model="fullname"
-                required
-              />
-            </div>
+            <FormGroup
+              id="register-fullname"
+              label="Имя *"
+              v-model="fullname"
+              :errorLabel="errorData.fullname"
+              required
+            />
 
-            <div class="form-group">
-              <label for="register-phone" class="control-label">
-                Контактный телефон:
-              </label>
-              <input
-                type="text"
-                name="mobilephone"
-                placeholder
-                class="form-control"
-                id="register-phone"
-                v-model="mobilephone"
-                required
-              />
-            </div>
+            <FormGroup
+              id="register-mobilephone"
+              label="Контактный телефон *"
+              type="tel"
+              v-model="mobilephone"
+              :errorLabel="errorData.mobilephone"
+              required
+            />
 
             <div class="form-group" style="margin-top: 68px;">
               <div class="row">
@@ -102,19 +84,33 @@
 
 <script>
 import { mapActions } from 'vuex';
+
 import AuthPage from '@/components/AuthPage';
+import FormGroup from '@/components/FormGroup';
+
+import { messageTypes } from '@/constants';
 
 export default {
   name: 'Register',
   data: () => ({
     password: '',
     confirmpassword: '',
+    message: {},
   }),
   props: {
     pagetitle: String,
   },
   computed: {
     loading() { return this.$store.state.loading; },
+    errorData() {
+      const { errorData } = this.$store.state;
+      const draftErrorData = {};
+      for (let i = 0; i < errorData.length; i++) {
+        const { id, msg } = errorData[i];
+        draftErrorData[id] = msg;
+      }
+      return draftErrorData;
+    },
     email: {
       get() { return this.$store.state.user.email; },
       set(email) { this.$store.commit('setUserState', { email }); },
@@ -130,18 +126,25 @@ export default {
   },
   components: {
     AuthPage,
+    FormGroup,
   },
   methods: {
     ...mapActions(['register']),
     handleSubmit() {
       this.register({
         email: this.email,
+        username: this.email,
         fullname: this.fullname,
         mobilephone: this.mobilephone,
         password: this.password,
         confirmpassword: this.confirmpassword,
       }).then(() => {
         this.$router.push('/lk/home');
+      }).catch(({ message }) => {
+        this.message = {
+          type: messageTypes.ERROR,
+          text: message,
+        };
       });
     },
   },

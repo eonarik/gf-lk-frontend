@@ -9,9 +9,11 @@ export default ({
     credentials: 'include',
   };
 
-  const draftUrl = '/assets/components/modxsite/connectors/connector.php';
+  // const draftUrl = '/assets/components/modxsite/connectors/connector.php';
+  // let draftParams = `pub_action=${url}&`;
 
-  let draftParams = `pub_action=${url}&`;
+  const draftUrl = `/api/${url}`;
+  let draftParams = '';
 
   const token = window.localStorage.getItem('token') || undefined;
   if (token) draftParams += `token=${token}&`;

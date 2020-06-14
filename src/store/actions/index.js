@@ -1,6 +1,7 @@
 export { default as addFavourite } from './addFavourite';
 export { default as addSubscription } from './addSubscription';
 export { default as getFavourites } from './getFavourites';
+export { default as getFavouritesTotal } from './getFavouritesTotal';
 export { default as getOrders } from './getOrders';
 export { default as getProfile } from './getProfile';
 export { default as getSubscriptions } from './getSubscriptions';
